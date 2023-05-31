@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import signupview from '../views/SignupView.vue'
 import BookShow from '../views/Books/BooksView.vue'
 import BookDetail from '../views/Books/BookDetailView.vue'
+import NotFound from '../views/404.vue'
 
 
 const routes = [
@@ -38,6 +39,11 @@ const routes = [
   {
     path:'/all-books',
     redirect:'/books'
+  },
+  {
+    path:'/:catchAll(.*)',
+    name: 'notfound',
+    component: NotFound
   }
 ]
 
