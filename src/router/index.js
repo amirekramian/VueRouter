@@ -17,12 +17,12 @@ const routes = [
     component: signupview
   },
   {
-    path: '/Books',
+    path: '/books',
     name: 'BookShow',
     component: BookShow
   },
   {
-    path: '/Books/:id',
+    path: '/books/:id',
     name: 'BookDetail',
     component: BookDetail,
     props:true
@@ -34,6 +34,10 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path:'/all-books',
+    redirect:'/books'
   }
 ]
 
