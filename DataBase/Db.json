@@ -1,0 +1,14 @@
+{
+    "Books": [
+        {"id":0,"title":"Pride and Prejudice", "releaseyear": 1813 , "author":"jane austin" , "imgsrc":"@/assets/Images/BeachRead.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":1,"title":"Seven Days in june", "releaseyear": 2021 , "author":"andre aciman", "imgsrc": "@/assets/Images/PrideandPrejudice.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":2,"title":"Beach Read", "releaseyear": 2020 , "author":"Emily Henry","imgsrc": "@/assets/Images/SevenDaysInJune.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":3,"title":"The Notebook", "releaseyear": 1996 , "author":"Nicholas Sparks","imgsrc": "@/assets/Images/TheNotebook.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":4,"title":"Me Before You", "releaseyear": 2012 , "author":"Nicholas Sparks","imgsrc": "@/assets/Images/MeBeforeYou.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":5,"title":"Outlander", "releaseyear": 1991 , "author":"diana gabaldon","imgsrc": "@/assets/Images/Outlander.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":6,"title":"The Flatshare", "releaseyear": 2019 , "author":"beth oleary","imgsrc": "@/assets/Images/TheFlatshare.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":7,"title":"One Last stop", "releaseyear": 2021 , "author":"casey Mcquiston","imgsrc": "@/assets/Images/thelaststop.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":8,"title":"Love on the brain", "releaseyear": 2019 , "author":"Beth oleary","imgsrc": "@/assets/Images/TheNotebook.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"},
+        {"id":9,"title":"The Fault in Our Stars", "releaseyear": 2012 , "author":"john green","imgsrc": "@/assets/Images/TheFaultinOurStars.jpg", "isfav" : false,"issaved":false, "Description":"the romantic book"}
+           ]
+}

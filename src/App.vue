@@ -4,10 +4,20 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/Books">Books</router-link> |
     <router-link :to="{name: 'signup'}">Signup</router-link>
-
   </nav>
+  <button class="btn btn-success" @click="Back()">Back</button>
   <router-view/>
 </template>
+
+<script>
+export default {
+  methods:{
+    Back(){
+      this.$router.go(-1)
+    },
+  }
+}
+</script>
 
 <style>
 #app {
