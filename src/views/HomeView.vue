@@ -12,12 +12,11 @@
 <br>
 <h2>Computedexample</h2>
 <input type="text" v-model="search">
-<p>search result - {{matchnames}}</p>
-<ul>
-  <li v-for="name in names" :key="name">{{name}}</li>
-</ul>
+<div v-if="{matchnames}">
 
+  <div v-for="name in matchnames" :key="name">{{name}}</div>
   </div>
+</div>
 </template>
 
 <script>
