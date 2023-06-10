@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, watch } from 'vue'
+import { ref, reactive, computed, watch, watchEffect } from 'vue'
 // @ is an alias to /src
 
 export default {
@@ -29,9 +29,14 @@ export default {
     const reactiveexample = reactive({name:'asqar' , age:30})
     const names = ref(['amir','mina','sepehr','mohammadali','alireza','amirhossein'])
     const search = ref('')
-
+//run when search modify everytime
 watch(search ,()=>{
   console.log('watch run')
+})
+//run only one time
+//if use a variable in methode, that run every time variable changes
+watchEffect(()=>{
+  console.log('watch effect ran',search.value)
 })
 
     const matchnames = computed(()=>{
