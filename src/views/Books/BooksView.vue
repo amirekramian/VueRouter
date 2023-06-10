@@ -1,5 +1,5 @@
 <template>
-  <div class="mainbody" id="app">
+  <div class="mainbody" id="app" v-if="Books.length">
     <br />
     <div>
       <button class="btn btn-default" @click="FavoriteOnlyToggle()">
@@ -12,7 +12,7 @@
       </button>
     </div>
     <ul class="flex" v-if="!this.FavoritOnly && !this.saveOnly">
-      <li v-for="item in Books" :key="item.id" @dblclick="LikeBook(item)">
+      <li v-for="item in Books" :key="item.id" @dblclick="LikeBook(item)" >
         <div class="picbox" :class="{ fav: item.isfav , save:item.issaved , favsave:item.isfav && item.issaved}">
           <div>
             <img :src="item.imgsrc" class="bookPic" />
@@ -118,6 +118,9 @@
     <br>
     <div class="box" @mousemove="HandleMouseMove">{{x}}-{{y}}</div> -->
   </div>
+  <div v-else>
+    Books Loading...
+  </div>
 </template>
 
 <script>
@@ -126,29 +129,26 @@ export default {
   props: ["BookData", "favoriteOnly","FavBooks","saveBooks","saveOnly","showDetailModal"],
   data() {
     return {
-      Books: [
-                 {id:0,title:'Pride and Prejudice', releaseyear: 1813 , author:'jane austin' , imgsrc:require('@/assets/Images/BeachRead.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:1,title:'Seven Days in june', releaseyear: 2021 , author:'andre aciman', imgsrc: require('@/assets/Images/PrideandPrejudice.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:2,title:'Beach Read', releaseyear: 2020 , author:'Emily Henry',imgsrc: require('@/assets/Images/SevenDaysInJune.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:3,title:'The Notebook', releaseyear: 1996 , author:'Nicholas Sparks',imgsrc: require('@/assets/Images/TheNotebook.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:4,title:'Me Before You', releaseyear: 2012 , author:'Nicholas Sparks',imgsrc: require('@/assets/Images/MeBeforeYou.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:5,title:'Outlander', releaseyear: 1991 , author:'diana gabaldon',imgsrc: require('@/assets/Images/Outlander.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:6,title:'The Flatshare', releaseyear: 2019 , author:'beth oleary',imgsrc: require('@/assets/Images/TheFlatshare.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:7,title:'One Last stop', releaseyear: 2021 , author:'casey Mcquiston',imgsrc: require('@/assets/Images/thelaststop.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:8,title:'Love on the brain', releaseyear: 2019 , author:'Beth oleary',imgsrc: require('@/assets/Images/TheNotebook.jpg'), isfav : false,issaved:false, Description:'the romantic book'},
-                 {id:9,title:'The Fault in Our Stars', releaseyear: 2012 , author:'john green',imgsrc: require('@/assets/Images/TheFaultinOurStars.jpg'), isfav : false,issaved:false, Description:'the romantic book'}
-                    ],
+      Books: [],
       FavoritOnly: false,
       SaveOnly: this.saveOnly,
       SelectedData:"",
       ModalShow:this.showDetailModal
     };
   },
+  mounted(){
+    fetch('http://localhost:3000/Books')
+    .then(res => res.json())
+    .then(data => this.Books = data)
+    .catch(err=>console.log(err.message))
+    console.log(this.Books)
+  },
   methods: {
     LikeBook(item) {
       this.Books[item.id].isfav = !this.Books[item.id].isfav;
     },
     FavoriteOnlyToggle() {
+      console.log(this.Books)
       this.FavoritOnly = !this.FavoritOnly
       this.$emit('FavsClick')
       // console.log(this.favorites)
