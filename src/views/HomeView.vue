@@ -8,6 +8,7 @@
 <br>
 <h2>reactiveexample</h2>
 {{reactiveexample.name}}-{{reactiveexample.age}}
+<button @click="increaseAgereactive">increase age</button>
   </div>
 </template>
 
@@ -23,8 +24,11 @@ export default {
     const increaseAge = () =>{
         refexample.value.age++
     }
+    const increaseAgereactive =()=>{
+      reactiveexample.age++
+    }
 
-    return{refexample,reactiveexample,increaseAge}
+    return{refexample,reactiveexample,increaseAge,increaseAgereactive}
   },
   name: 'HomeView',
   components: {
