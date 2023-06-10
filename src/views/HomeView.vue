@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 // @ is an alias to /src
 
 export default {
@@ -29,6 +29,10 @@ export default {
     const reactiveexample = reactive({name:'asqar' , age:30})
     const names = ref(['amir','mina','sepehr','mohammadali','alireza','amirhossein'])
     const search = ref('')
+
+watch(search ,()=>{
+  console.log('watch run')
+})
 
     const matchnames = computed(()=>{
       return names.value.filter((name) => name.includes(search.value))
